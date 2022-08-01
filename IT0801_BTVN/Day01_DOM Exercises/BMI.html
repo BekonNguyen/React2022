@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Body Mass Index</title>
+</head>
+
+<body>
+    <form>
+        <p>
+            Chỉ số BMI đối với người trên 20 tuổi
+        </p>
+        <input type="number" id="weight" placeholder="Enter your weight (kg)" size="30" min="0" required>
+        <input type="number" id="height" placeholder="Enter your height (m)" size="30" min="0" required>
+        <br></br>
+        <input type="submit" name="calc" id="calc" onclick="calcBMI(event)" value="Calc BMI">
+        <br></br>
+        <span id="result"></span>
+    </form>
+
+</body>
+<script>
+    let height = document.getElementById('height');
+    let weight = document.getElementById('weight');
+    let result = document.getElementById('result');
+
+    function calcBMI(e) {
+        e.preventDefault();
+        let w = Number(weight.value);
+        let h = Number(height.value);
+        let BMI = (parseFloat(w) / ((parseFloat(h)) * (parseFloat(h)))).toFixed(fractionDigits =  2);
+
+        if (BMI < 16) {
+            result.innerText = BMI + " Gầy độ III";
+        } else if (BMI >= 16 && BMI <= 17) {
+            result.innerText = BMI + " Gầy độ II";
+        } else if (BMI >= 17 && BMI < 18.5) {
+            result.innerText = BMI + " Gầy độ I";
+        } else if (BMI >= 18.5 && BMI < 25) {
+            result.innerText = BMI + " Bình thường";
+        } else if (BMI >= 25 && BMI < 30) {
+            result.innerText = BMI + " Thừa cân";
+        } else if (BMI >= 30 && BMI < 35) {
+            result.innerText = BMI + " Béo phì độ I";
+        } else if (BMI >= 35 && BMI < 40) {
+            result.innerText = BMI + " Béo phì độ II";
+        } else if (BMI > 40) {
+            result.innerText = BMI + " Béo phì độ III";
+        }
+    }
+</script>
+
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính Điểm</title>
+</head>
+<body>
+    <form action="">
+        <label for="">Nhập điểm Toán</label>
+        <br>       
+        <input type="number" id="toan" min="0" max="10"  placeholder="6.5" required onkeyup = "promtMath(this)">
+        <br>
+        <label for="">Nhập điểm Văn</label>  
+        <br> 
+        <input type="number" id="van" min="0" max="10"  placeholder="6.5" required onkeyup = "promtLiterature(this)">
+        <br>
+        <label for="">Nhập điểm Anh</label> 
+        <br>  
+        <input type="number" id="anh" min="0" max="10"  placeholder="6.5" required onkeyup = "promtEnglish(this)">
+        <br>
+        <label for="">Chọn khu vực</label>
+        <br>
+        <select name="region" id="region">
+            <option value="0.75"  >Khu vực 1</option>
+            <option value="0.5" >Khu vực 2 - NT</option>
+            <option value="0.25" >Khu vực 2</option>
+            <option value="0" >Khu vực 3</option>                                                            
+        </select>
+        <br></br>
+        <input type="submit" onclick="cal(event)" value = "Tính Điểm"> 
+        <br></br>
+        <div id="result"> Tổng điểm: 0</div>
+        
+
+    </form>
+    
+</body>
+<script>
+    ////  Cách 1:
+    // function cal(){
+    //     var diemToan = Number(document.getElementById('toan').value);
+    //     var diemVan = Number(document.getElementById('van').value);      
+    //     var diemAnh = Number(document.getElementById('anh').value);
+
+    //     if (diemToan == "" || diemVan == "" || diemAnh == "") {
+    //         alert ("Nhập thiếu điểm")
+    //     } else if (diemToan < 0 || diemToan >10 || diemVan < 0 || diemVan >10 || diemAnh < 0 || diemAnh >10 ) {
+    //         alert ("Điểm phải lớn hơn hoặc bằng 0, nhỏ hơn hoặc bằng 10")
+    //     }  
+        
+    //     if (document.getElementById('KhuVuc').innerHTML === "Khu vực 1") {
+    //         var tongDiem = diemToan + diemVan + diemAnh + 0.75;      
+    //     } else if (document.getElementById('KhuVuc').innerHTML === "Khu vực 2 - NT") {
+    //         var tongDiem = diemToan + diemVan + diemAnh + 0.5;
+            
+    //     } else if (document.getElementById('KhuVuc').innerHTML === "Khu vực 2") {
+    //         var tongDiem = diemToan + diemVan + diemAnh + 0.25;
+            
+    //     } else if (document.getElementById('KhuVuc').innerHTML === "Khu vực 3") {
+    //         var tongDiem = diemToan + diemVan + diemAnh;
+    //     }
+            
+    //     document.getElementById('result').innerText = "Tổng điểm của bạn là: " + tongDiem;
+        
+    // }
+
+
+    //      Cách 2
+    var toan, van, anh, region = 0;
+    function promtMath(obj){
+        toan = parseFloat(obj.value);
+    }
+    function promtLiterature(obj){
+        van = parseFloat(obj.value);
+    }
+    function promtEnglish(obj){
+        anh = parseFloat(obj.value);
+    }
+    let regionDropdown = document.getElementById("region");
+    regionDropdown.addEventListener('change', function() {
+        region = parseFloat(this.value);
+    });
+    function cal(e){
+        e.preventDefault();
+        let total = toan + van + anh + region;
+        document.getElementById('result').innerText = "Tổng điểm: " + total;
+    }
+</script>
+</html>

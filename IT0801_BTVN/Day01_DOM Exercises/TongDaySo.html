@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tổng của dãy số</title>
+</head>
+<body>
+    <p>Tổng của 1 dãy số trong khoảng từ A đến B</p>
+    <input type="number" style="width:150px" placeholder="Nhập số nguyên A" id="numberA"><br></br>
+    <input type="number" style="width:150px" placeholder="Nhập số nguyên B" id="numberB"><br></br>
+    <input type="button" value = "Kết quả" onclick="calcSum()"><br></br>
+    <span id="result"></span>
+</body>
+<script>
+    function calcSum(){
+        let a = Number(document.getElementById('numberA').value);
+        let b = Number(document.getElementById('numberB').value);
+        let sum = 0;
+        let i;
+        for (i = a; a <= b; a++){
+            sum += a;
+        }
+        document.getElementById('result').innerText = "Tổng của dãy số là " + sum;
+
+    }
+</script>
+
+</html>

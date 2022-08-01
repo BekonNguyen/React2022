@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bảng Cửu Chương</title>
+</head>
+<body>
+    <p>Nhập bảng cửu chương muốn in</p>
+    <input type="number" style="width: 100px;" min="1" max="9" id="inputNumber">
+    <br></br>
+    <input type="button" value="In kết quả" onclick="calc()">
+    <br></br>
+    <span id = "result1"></span><br></br>
+    <span id = "result2"></span><br></br>
+    <span id = "result3"></span><br></br>
+    <span id = "result4"></span><br></br>
+    <span id = "result5"></span><br></br>
+    <span id = "result6"></span><br></br>
+    <span id = "result7"></span><br></br>
+    <span id = "result8"></span><br></br>
+    <span id = "result9"></span><br></br>
+</body>
+<script>
+    function calc() {
+        var inputNumber = Number(document.getElementById("inputNumber").value);
+        document.getElementById('result1').innerText = inputNumber + "x1 = " + inputNumber;
+        document.getElementById('result2').innerText = inputNumber + "x2 = " + inputNumber*2;
+        document.getElementById('result3').innerText = inputNumber + "x3 = " + inputNumber*3;
+        document.getElementById('result4').innerText = inputNumber + "x4 = " + inputNumber*4;
+        document.getElementById('result5').innerText = inputNumber + "x5 = " + inputNumber*5;
+        document.getElementById('result6').innerText = inputNumber + "x6 = " + inputNumber*6;
+        document.getElementById('result7').innerText = inputNumber + "x7 = " + inputNumber*7;
+        document.getElementById('result8').innerText = inputNumber + "x8 = " + inputNumber*8;
+        document.getElementById('result9').innerText = inputNumber + "x9 = " + inputNumber*9;
+
+    }
+
+</script>
+</html>

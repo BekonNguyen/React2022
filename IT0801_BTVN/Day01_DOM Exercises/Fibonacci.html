@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fibonacci</title>
+</head>
+<body>
+    <p>In dãy Fibonacci</p>
+    <input type="number" id="length" placeholder="Nhập  độ dài của dãy Fibonacci" size="45">
+    <input type="button" id="ketqua" value="In kết quả" onclick="printFibonacci()">
+    <br></br>
+    <span id="result"></span>
+    
+</body>
+<script>
+    function printFibonacci(length){
+        var length = document.getElementById("length").value;
+        var n1 = 1, n2 = 1, nextNumber;
+        for (let i = 1; i <= length; i++){
+            
+            document.getElementById("result").innerText = n1 + ", ";   
+            nextNumber = n1 + n2;  
+            n1 = n2;
+            n2 = nextNumber;
+                     
+        }
+    }
+
+    // #include<iostream>
+
+    // using namespace std;
+
+    // long long fibonacci(int n){
+	// if (n == 1 || n == 2) return 1;
+	// return fibonacci(n-1) + fibonacci(n-2);
+    // }
+    // int main(){
+	// int n, i;
+	// cin >> n;
+	// for(i = 1; i <= n; i++){
+	//   cout << fibonacci(i) << ", ";
+	// }
+	// return 0;
+    // }
+        
+</script>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check UserName</title>
+</head>
+<body>
+    <p>Kiểm tra tính hợp lệ của tài khoản</p>
+    <input type="text" placeholder="Enter your username" id="username">
+    <input type="button" id="buttonCheck" value="Check" onclick="checkUserName()">
+</body>
+<script>
+    function checkUserName() {
+        var regExp = /^[_a-z0-9]{6,}$/;
+        var username = document.getElementById("username").value;
+        if (regExp.test(username)) {
+            alert("Tài khoản hợp lệ");
+        } else {
+            alert("Tài khoản không hợp lệ");
+        }
+    }
+</script>
+</html>

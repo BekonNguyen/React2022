@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check chữ hoa</title>
+</head>
+<body>
+    <p>Kiểm tra chữ hoa đầu tiên</p>
+    <input type="text" placeholder="Nhập chữ cái bất kỳ" id="text">
+    <input type="button" value="Check" onclick="check()">
+    
+</body>
+<script>
+    function check() {
+        var regExp = /^[A-Z]/;
+        var text = document.getElementById("text").value;
+        if (regExp.test(text)) {
+            alert("Ký tự đầu tiên là chữ hoa");
+        } else {
+            alert("Ký tự đầu tiên không phải là chữ hoa");
+        }
+    }
+    // // Cách 2:
+    // let testStr = prompt("Enter a string");
+    // let firstChar = testStr[0];
+    // if (firstChar.toUpperCase() == testStr[0]){
+    //     console.log("Ký từ đầu tiên là chữ hoa");
+    // } else {
+    //     console.log("Ký từ đầu tiên không là chữ hoa");
+    // }
+        
+
+</script>
+</html>

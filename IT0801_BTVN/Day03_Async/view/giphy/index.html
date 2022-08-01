@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIPHY</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="text-center">
+            <h1 class="text-white">GIPHY PARTY</h1>
+            <input type="text" placeholder="Enter a keyword" onkeyup="promtSearchingKeyword(this)">
+            <button class = "bg-dark" onclick="search()">Search</button>
+            <button class = "bg-danger" onclick="clear()">Remove</button>
+        </div>
+        <br/>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        let result = document.getElementById("result");
+        let searchingKeyword, imageArr = [];
+        let url = 'http://api.giphy.com/v1/gifs/search';
+        function promtSearchingKeyword(obj){
+            searchingKeyword = obj.value;
+        }
+        function search(){
+            requestData(searchingKeyword);
+        }
+        function requestData(searchingKeyword){
+            axios
+            .get(`http://api.giphy.com/v1/gifs/search?q=${searchingKeyword}&api_key=67IV4hc1CwKqtuuXaRHijtbWzdhdGGdk`)
+            .then ((resutl) => {
+                console.log(result);
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+            .then (function (){
+                displayData();
+            });
+        }
+        function displayData(){
+            let html = "";
+            imageArr.map(
+                image => {
+                    html += '<img src="' + image + '"width = "300" h'>'
+                }
+            );
+            result.innerHTML = html;
+        }
+    </script>
+    
+</body>
+</html>
