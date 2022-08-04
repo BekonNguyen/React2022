@@ -18,3 +18,4 @@ import Counter from './components/Counter';
 const container = document.getElementById('root');
 const root = createRoot(container);
 root.render(<App />);
+

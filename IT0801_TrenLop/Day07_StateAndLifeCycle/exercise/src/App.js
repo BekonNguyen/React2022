@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Expand from './components/Expand';
 import Home from './components/Home';
 import FormAdd from './components/FormAdd';
@@ -21,10 +21,13 @@ import FormAdd from './components/FormAdd';
 
 //   render (){
 //     const {display} = this.state;
+
 //     // Nếu display = true (hiển thị đọc thêm) thì render Expand.js 
 //     // Lúc này, closeExpand được gán lại về handleDisAppear ()
 //     // Khi On Click button "Đóng" (bên Expand.js) thì kích hoạt handleDisAppear (chuyển về không hiển thị đoc thêm)
+
 //     if(display) return (<Expand closeExpand = {this.handleDisAppear} />) 
+
 //     // Nếu display = false (không hiển thị đọc thêm) thì chạy render phía dưới.
 //     // button " Xem giới thiệu " được gắn handleAppear. Nếu bị On click thì kích hoạt handleAppear và kích hoạt display = true.
 //     return(
@@ -120,66 +123,87 @@ import FormAdd from './components/FormAdd';
 
 // export default App;
 
-//Exercise_5
+// //Exercise_5
 
-class ListStudents extends Component {
-  constructor(props) {
-    super (props);
-    this.state = {
-      display: false ,
-      students: [
-        {Id: "", Name: "", Phone: "", Email: "" },
-      ]
-    };
-  }
+// class ListStudents extends Component {
+//   constructor(props) {
+//     super (props);
+//     this.state = {
+//       display: false ,
+//       students: [
+//         {Id: "", Name: "", Phone: "", Email: "" },
+//       ]
+//     };
+//   }
 
-  handleAdded = () => {
-    this.setState({ display: true})
-  }
-  handleNotAdd = () => {
-    this.setState ({ display: false})
-  }
+//   handleAdded = () => {
+//     this.setState({ display: true})
+//   }
+//   handleNotAdd = () => {
+//     this.setState ({ display: false})
+//   }
 
-  renderTableData(){
-    return this.state.students.map((student,index) => {
-        const{Id, Name, Phone, Email} = student
-        return (
-            <tr key = {Id}>
-                <td >{Id}</td>
-                <td >{Name}</td>
-                <td >{Phone}</td>
-                <td >{Email}</td>
-            </tr>
-        )
-    })
-  }
+//   renderTableData(){
+//     return this.state.students.map((student,index) => {
+//         const{Id, Name, Phone, Email} = student
+//         return (
+//             <tr key = {Id}>
+//                 <td >{Id}</td>
+//                 <td >{Name}</td>
+//                 <td >{Phone}</td>
+//                 <td >{Email}</td>
+//             </tr>
+//         )
+//     })
+//   }
 
-  renderTableHeader(){
-    const header = Object.keys(this.state.students[0])
-    return header.map((key,index) => <th key = {index}>{key}</th>)
-  }
+//   renderTableHeader(){
+//     const header = Object.keys(this.state.students[0])
+//     return header.map((key,index) => <th key = {index}>{key}</th>)
+//   }
 
-  render(){
-    const {display} = this.state;
-    if (display) return (<FormAdd closeFormAdd = {this.handleNotAdd}/>)
-    
+//   render(){
+//     const {display} = this.state;
+//     if (display) return (<FormAdd closeFormAdd = {this.handleNotAdd}/>)
 
-    return (
-      <div className='container mt-3'>
-        <div className=''>
-          <button className="btn btn-lg btn-primary" onClick={this.handleAdded}>Add</button>
+
+//     return (
+//       <div className='container mt-3'>
+//         <div className=''>
+//           <button className="btn btn-lg btn-primary" onClick={this.handleAdded}>Add</button>
+//         </div>
+//         <div>
+//           <table className="table table-bordered table-striped ">
+//             <tbody>
+//               <tr>{this.renderTableHeader()}</tr>
+//               {this.renderTableData()}                           
+//             </tbody>
+//           </table>
+//         </div>
+
+//       </div>
+//     )
+//   }
+// }
+// export default ListStudents;
+
+//Exercise_4
+
+export default function TodoCard(props) {
+  return (
+    <div className="container">
+      <div className="row">
+        <div className="col-12 col-xl-4"></div>
+        <div className="col-12 col-xl-4">
+          <div className='card'>
+            <div className='card-body'>
+              <h5 className='card-title'>{props.title}</h5>
+              <p className='card-text'>{props.text}</p>
+            </div>
+          </div>
         </div>
-        <div>
-          <table className="table table-bordered table-striped ">
-            <tbody>
-              <tr>{this.renderTableHeader()}</tr>
-              {this.renderTableData()}                           
-            </tbody>
-          </table>
-        </div>
-        
+        <div className="col-12 col-xl-4"></div>
       </div>
-    )
-  }
+    </div>
+  )
 }
-export default ListStudents;
